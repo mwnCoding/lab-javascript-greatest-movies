@@ -30,19 +30,24 @@ function scoresAverage(moviesArray) {
         return 0;
     }
         const sum = moviesArray.reduce((accu, currentElement) => {
-            if (currentElement.score === undefined) {
-                return accu;
-            }
-            else {
+            if (currentElement.score !== undefined) {
                 return accu + currentElement.score;
             }
-        });
+            else {
+                return accu;
+            }
+        }, 
+        0);
         const average = sum / moviesArray.length;
-        return average.toFixed(2)
+        return Math.round(average * 100) / 100;
 }
 
 // Iteration 4: Drama movies - Get the average of Drama Movies
-function dramaMoviesScore(moviesArray) {}
+function dramaMoviesScore(moviesArray) {
+    const dramaMovies = moviesArray.filter((currentElement) => {
+
+    });
+}
 
 // Iteration 5: Ordering by year - Order by year, ascending (in growing order)
 function orderByYear(moviesArray) {}
