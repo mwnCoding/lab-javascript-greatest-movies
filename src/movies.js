@@ -89,8 +89,40 @@ function orderAlphabetically(moviesArray) {
     return sortedTitle;
 }
 
+
+const test =[
+{
+    "title": "The Shawshank Redemption",
+    "year": 1994,
+    "director": "Frank Darabont",
+    "duration": "2h 22min",
+    "genre": ["Crime","Drama"],
+    "score" :9.3
+  }
+]
+
+
+
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
-function turnHoursToMinutes(moviesArray) {}
+function turnHoursToMinutes(moviesArray) {
+    const newMovies = moviesArray.map((currentElement) => {
+        const regexHours = /$\d+h/;
+        const regexMinutes = /\d+min/;
+        const hours = currentElement.duration.match(regexHours);
+        const minutes = currentElement.duration.match(regexMinutes);
+        console.log(hours);
+        console.log(minutes);
+        /*
+        let hoursClean = hours.replace('h', '');
+        let minutesClean = minutes.replace('min', '');
+        */
+
+    });
+    console.log(newMovies);
+}
+
+turnHoursToMinutes(test);
+
 
 // BONUS - Iteration 8: Best yearly score average - Best yearly score average
 function bestYearAvg(moviesArray) {}
