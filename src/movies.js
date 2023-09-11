@@ -106,19 +106,24 @@ const test =[
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
 function turnHoursToMinutes(moviesArray) {
     const newMovies = moviesArray.map((currentElement) => {
-        const regexHours = /$\d+h/;
-        const regexMinutes = /\d+min/;
-        const hours = currentElement.duration.match(regexHours);
-        const minutes = currentElement.duration.match(regexMinutes);
-        console.log(hours);
-        console.log(minutes);
-        /*
-        let hoursClean = hours.replace('h', '');
-        let minutesClean = minutes.replace('min', '');
-        */
-
+        let hours = 0;
+        let minutes = 0;
+        let splitArray = currentElement.duration.split(" ");
+        if (splitArray.length === 1) {
+            hours = parseInt(splitArray[0]);
+        }
+        else if (splitArray.length === 2) {
+            hours = parseInt(splitArray[0]);
+            minutes = parseInt(splitArray[1]);
+        }
+        else {
+            throw new Error("Invalid format for the duration");
+        }
+        const objCopy = {...currentElement};
+        objCopy.duration = hours * 60 + minutes;
+        return objCopy;
     });
-    console.log(newMovies);
+    return newMovies;
 }
 
 turnHoursToMinutes(test);
